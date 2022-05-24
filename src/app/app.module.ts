@@ -1,18 +1,37 @@
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { EmployeeComponent } from './Components/employee/employee.component';
+import { EmployeesComponent } from './Components/Employees/Employees.component';
+import { CreateEmployeeComponent } from './Components/CreateEmployee/CreateEmployee.component';
+import { UpdateEmployeeComponent } from './Components/UpdateEmployee/UpdateEmployee.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EmployeeComponent,
+    EmployeesComponent,
+    CreateEmployeeComponent,
+    UpdateEmployeeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
+    ],
+  providers: [
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass:AuthInterceptorService,
+    //   multi:true
+    // }
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

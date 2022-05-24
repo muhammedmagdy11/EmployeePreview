@@ -1,0 +1,27 @@
+<div class="container">
+  <p>Filtering by date range</p>
+  <input #Date1 type="date" value="2022-01-01" (change)="changeInput()"> - <input #Date2 type="date" value="2022-01-01" (change)="changeInput()">
+  <table class="table table-dark table-striped mt-5">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of Employees">
+        <td>
+          {{item.firstName}}
+        </td>
+        <td>{{item.address}}</td>
+        <td>
+          <a class="btn btn-warning text-white me-2">Details</a>
+          <button class="btn btn-danger bg-danger me-2" (click)="deleteEmployee(item.id);">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <app-CreateEmployee (CreateEvent)="Created($event)"></app-CreateEmployee>
+</div>
+
