@@ -4,12 +4,14 @@ import { EmployeeComponent } from './Components/employee/employee.component';
 import { EmployeesComponent } from './Components/Employees/Employees.component';
 import { UpdateEmployeeComponent } from './Components/UpdateEmployee/UpdateEmployee.component';
 import { CreateEmployeeComponent } from './Components/CreateEmployee/CreateEmployee.component';
+import { DepartmentsComponent } from './Components/Departments/Departments.component';
 const routes: Routes = [
   {path:'employee', component:EmployeeComponent},
   {path:'employees', component:EmployeesComponent},
   {path:'employees/create', component:CreateEmployeeComponent},
   {path:'employees/update/:id', component:UpdateEmployeeComponent},
-  {path:'employees/details/:id', component:EmployeeComponent}
+  {path:'employees/details/:id', component:EmployeeComponent},
+  {path:'departments', component:DepartmentsComponent},
 ];
 
 @NgModule({

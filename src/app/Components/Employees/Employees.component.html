@@ -20,6 +20,7 @@
       <tr>
         <th>Name</th>
         <th>Address</th>
+        <th>BirthDate</th>
         <th> </th>
       </tr>
     </thead>
@@ -29,6 +30,7 @@
           {{item.firstName}}
         </td>
         <td>{{item.address}}</td>
+        <td>{{item.birthDate}}</td>
         <td>
           <button class="btn btn-primary me-2" routerLink='details/{{item.id}}'>Details</button>
           <button class="btn btn-danger  me-2" (click)="deleteEmployee(item.id);">Delete</button>

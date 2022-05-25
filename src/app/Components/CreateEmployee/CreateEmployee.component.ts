@@ -28,7 +28,6 @@ file!:File;
   }
   submit(form:NgForm)
   {
-    console.log(this.Employee.birthdate);
     this.service.createEmployee(this.Employee).subscribe(CreatedEmp =>{
       this.CreateEvent.emit(CreatedEmp)
     form.resetForm();

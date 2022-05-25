@@ -21,8 +21,8 @@ export class UpdateEmployeeComponent implements OnInit {
       this.service.getEmployee(this.myroute.snapshot.params['id']).subscribe(
         emp=>{
           this.Employee=emp;
-          this.Employee.birthdate='2022-05-14';
-          console.log(this.Employee);
+          this.Employee.birthDate =this.Employee.birthDate.substring(0,10);
+          console.log(new Date(this.Employee.birthDate));
              });
         this.departmentService.getDepartments().subscribe(
           departments => {

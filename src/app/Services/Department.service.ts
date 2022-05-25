@@ -14,5 +14,13 @@ constructor(private _http:HttpClient) {}
 getDepartments():Observable<Department[]>{
   return this._http.get<Department[]>(this.url);
  }
-
+ createDepartment(department:Department):Observable<Department>{
+  return this._http.post<Department>(this.url,department);
+}
+getDepartment(id:number):Observable<Department>{
+  return this._http.get<Department>(`${this.url}/${id}`);
+ }
+Delete(id:number){
+  return this._http.delete(`${this.url}/${id}`);
+ }
 }

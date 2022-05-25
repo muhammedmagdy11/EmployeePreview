@@ -40,10 +40,16 @@ export class EmployeesComponent implements OnInit {
     }
   }
   filterDate(){
-    this.Employees=this.AllEmployees.filter(e=>e.birthdate>=this.StartDate.nativeElement.value&&e.birthdate<=this.StartDate.nativeElement.value);
+    console.log(new Date(this.StartDate.nativeElement.value))
+    // let year=new Date(e.birthDate).getFullYear();
+    // let month=new Date(e.birthDate).getMonth();
+    // let day=new Date(e.birthDate).getDay();
+    this.Employees=this.AllEmployees.filter(e=>new Date(e.birthDate)>=new Date(this.StartDate.nativeElement.value)&&new Date(e.birthDate)<=new Date(this.EndDate.nativeElement.value));
   }
   clearFilter(){
     this.Employees=this.AllEmployees;
+    this.StartDate.nativeElement.value='';
+    this.EndDate.nativeElement.value='';
   }
 
 //this.Employees=this.Employees.filter(e=>e.birthdate>=this.filters['from'] && e.birthdate<=this.filters['to']);

@@ -10,7 +10,7 @@ export class Employee{
   firstName!:string;
   lastName!:string;
   address!:string;
-  birthdate!:string;
+  birthDate!:string;
   age!:number;
   departmentId!:number;
   mobile!:string;
