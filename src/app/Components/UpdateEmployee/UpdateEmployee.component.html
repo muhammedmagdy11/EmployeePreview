@@ -18,6 +18,12 @@
       <input type="text" class="form-control" required placeholder="Last Name" name="lastName" [(ngModel)] = "Employee.lastName">
     </div>
     <div class="form-group">
+      <label>Department</label>
+      <select  class="form-control" name="departmentId" [(ngModel)] = "Employee.departmentId">
+        <option *ngFor="let item of Departments" [ngValue]="item.id">{{item.name}}</option>
+      </select>
+    </div>
+    <div class="form-group">
       <label>Age</label>
       <input type="number" class="form-control" placeholder="Age" name="age" [(ngModel)] = "Employee.age">
     </div>
@@ -56,6 +62,7 @@
 
     </div>
   </fieldset>
-    <button type="submit" class="btn btn-primary mt-2 mr-2" style="margin-right: 5px;" [disabled]="myform.invalid">Update</button>
+    <button type="submit" class="btn btn-primary mt-2 me-2" [disabled]="myform.invalid">Update</button>
+    <a routerLink='/employees' class="btn btn-primary mt-2">Back</a>
   </form>
 </div>

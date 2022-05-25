@@ -10,8 +10,9 @@ export class Employee{
   firstName!:string;
   lastName!:string;
   address!:string;
-  birthdate!:Date;
+  birthdate!:string;
   age!:number;
+  departmentId!:number;
   mobile!:string;
   photo!:string;
   familyMembers!:FamilyMember[];

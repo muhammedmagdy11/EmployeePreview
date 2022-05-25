@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeService } from '../../Services/Employee.service';
 import { Employee } from '../../Models/Employee';
 import { FamilyMember } from 'src/app/Models/FamilyMember';
+import { DepartmentService } from 'src/app/Services/Department.service';
+import { Department } from 'src/app/Models/Department';
 
 @Component({
   selector: 'app-UpdateEmployee',
@@ -10,16 +12,24 @@ import { FamilyMember } from 'src/app/Models/FamilyMember';
   styleUrls: ['./UpdateEmployee.component.css']
 })
 export class UpdateEmployeeComponent implements OnInit {
-  constructor(private router:Router,private myroute:ActivatedRoute,private service:EmployeeService) { }
+  constructor(private router:Router,private myroute:ActivatedRoute,private service:EmployeeService,private departmentService:DepartmentService) { }
   Employee:Employee=new Employee([]);
+  Departments: Department[]=[];
 @ViewChild('MemberName',{read:ElementRef}) MemberName!: ElementRef;
 @ViewChild('MemberRelation',{read:ElementRef}) MemberRelation!: ElementRef;
     ngOnInit(): void {
       this.service.getEmployee(this.myroute.snapshot.params['id']).subscribe(
-        emp=>{this.Employee=emp;});
+        emp=>{
+          this.Employee=emp;
+          this.Employee.birthdate='2022-05-14';
+          console.log(this.Employee);
+             });
+        this.departmentService.getDepartments().subscribe(
+          departments => {
+            this.Departments = departments;
+          });
     }
   Update(){
-    console.log(this.Employee);
     this.service.UpdateEmployee(this.Employee).subscribe(res=> this.router.navigate(['employees']));
   }
   AddMember(){

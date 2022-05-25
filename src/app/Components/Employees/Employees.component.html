@@ -1,6 +1,20 @@
 <div class="container">
-  <p>Filtering by date range</p>
-  <input #Date1 type="date" value="2022-01-01"> - <input #Date2 type="date" value="2022-01-01" >
+  <h5>Filtering by date range</h5>
+  <div class="row">
+    <div class="col-lg-3">
+        <label for="startDate">Start</label>
+        <input #StartDate class="form-control" type="date" />
+    </div>
+    <div class="col-lg-3">
+        <label for="endDate">End</label>
+        <input #EndDate class="form-control" type="date" />
+    </div>
+    <div class="col-lg-3 ms-2 mt-4">
+      <button class="btn btn-primary me-2" (click)="filterDate()">Filter</button>
+      <button class="btn btn-primary"(click)="clearFilter()">Clear Filter</button>
+    </div>
+</div>
+  <!-- <input #Date1 type="date" value="2022-01-01"> - <input #Date2 type="date" value="2022-01-01" > -->
   <table class="table table-dark table-striped mt-5">
     <thead>
       <tr>
@@ -16,9 +30,9 @@
         </td>
         <td>{{item.address}}</td>
         <td>
-          <a class="btn btn-warning text-white me-2">Details</a>
-          <button class="btn btn-danger bg-danger me-2" (click)="deleteEmployee(item.id);">Delete</button>
-          <button class="btn btn-danger bg-danger me-2" routerLink='update/{{item.id}}'>Update</button>
+          <button class="btn btn-primary me-2" routerLink='details/{{item.id}}'>Details</button>
+          <button class="btn btn-danger  me-2" (click)="deleteEmployee(item.id);">Delete</button>
+          <button class="btn btn-warning me-2" routerLink='update/{{item.id}}'>Update</button>
         </td>
       </tr>
     </tbody>

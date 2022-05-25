@@ -1,4 +1,5 @@
 <div class="container">
+  <h1 class="text-center">Insert Employee</h1>
   <form #myform="ngForm" (ngSubmit)="submit(myform);">
   <!-- <div class="form-group">
       <label>File</label>
@@ -16,6 +17,12 @@
     <div class="form-group">
       <label>Last Name</label>
       <input type="text" class="form-control" required placeholder="Last Name" name="lastName" [(ngModel)] = "Employee.lastName">
+    </div>
+    <div class="form-group">
+      <label>Department</label>
+      <select  class="form-control" name="departmentId" [(ngModel)] = "Employee.departmentId">
+        <option *ngFor="let item of Departments"  [ngValue]="item.id">{{item.name}}</option>
+      </select>
     </div>
     <div class="form-group">
       <label>Age</label>
